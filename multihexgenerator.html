@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #color-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        #generate-btn {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .color-preview {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        .color-code {
+            font-size: 24px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #color-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        #generate-btn {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #3b3b3b;
+            color: #ffffff;
+            border: none;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        #generate-btn:hover {
+            background-color: #555555;
+            transform: translateY(-2px);
+        }
+
+        #color-previews {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .color-preview {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .color-preview:hover {
+            transform: translateY(-2px);
+        }
+
+        .color-code {
+            font-size: 21px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .color-code:hover {
+            background-color: #d0d0d0;
+            transform: translateY(-2px);
+        }
+
+        #color-codes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body onload="onload()" id="body">
+    <div id="color-container">
+        <button id="generate-btn">Generate new Colors</button>
+        <div id="color-previews">
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+
+        </div>
+        <div id="color-previews">
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+
+        </div>
+        <div id="color-previews">
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+            <div class="color-container">
+                <div class="color-preview"></div>
+                <div class="color-code"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="toast">
+        Hex code coppied to clicpboard
+    </div>
+    <script>
+        const generateBtn = document.getElementById('generate-btn');
+        const colorPreviews = document.querySelectorAll('.color-preview');
+        const colorCodes = document.querySelectorAll('.color-code');
+        const toast = document.querySelector('.toast');
+
+
+
+        generateBtn.addEventListener('click', function () {
+            const colors = getRandomHexColors(30);
+            for (let i = 0; i < colorPreviews.length; i++) {
+                colorPreviews[i].style.backgroundColor = colors[i];
+                colorCodes[i].textContent = colors[i];
+            }
+        });
+
+        for (let i = 0; i < colorCodes.length; i++) {
+            colorCodes[i].addEventListener('click', function () {
+                copyToClipboard(colorCodes[i].textContent);
+                showToast(colorCodes[i].textContent)
+            });
+        }
+
+        function onload() {
+            const colors = getRandomHexColors(30);
+            for (let i = 0; i < colorPreviews.length; i++) {
+                colorPreviews[i].style.backgroundColor = colors[i];
+                colorCodes[i].textContent = colors[i];
+            }
+        }
+
+        function getRandomHexColor() {
+            const hexChars = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += hexChars[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function getRandomHexColors(numColors) {
+            const colors = [];
+            for (let i = 0; i < numColors; i++) {
+                colors.push(getRandomHexColor());
+            }
+            return colors;
+        }
+
+        function copyToClipboard(text) {
+            const elem = document.createElement('textarea');
+            elem.value = text;
+            document.body.appendChild(elem);
+            elem.select();
+            document.execCommand('copy');
+            document.body.removeChild(elem);
+        }
+
+
+        function showToast(hexcode) {
+            toast.innerHTML = `Hex code : ${hexcode} ,  coppied to clipboard!`
+            toast.classList.add('show');
+            document.getElementById("body").style.background = `${hexcode}`
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+    </script>
+
+</body>
+
+</html>
