@@ -280,6 +280,10 @@
                 copyToClipboard(colorCodes[i].textContent);
                 showToast(colorCodes[i].textContent)
             });
+            colorPreviews[i].addEventListener('click', function () {
+                copyToClipboard(colorCodes[i].textContent);
+                showToast(colorCodes[i].textContent)
+            });
         }
 
         function onload() {
